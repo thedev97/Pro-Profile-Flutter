@@ -89,7 +89,7 @@ class ProProfileImageView extends StatelessWidget {
             height: height,
             width: width,
             fit: fit ?? BoxFit.cover,
-            color: color,
+            color: color
           );
       }
     }
