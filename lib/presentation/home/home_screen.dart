@@ -1,5 +1,6 @@
 import 'package:pro_profile/core/pro_profile_export.dart';
 import 'package:pro_profile/core/utils/pro_profile_string.dart';
+import 'package:pro_profile/presentation/resume/resume_screen.dart';
 import 'package:pro_profile/widgets/app_bar/pro_profile_app_bar.dart';
 import 'package:pro_profile/widgets/app_bar/pro_profile_appbar_title.dart';
 import 'package:pro_profile/widgets/drawer/drwaer_header.dart';
@@ -44,7 +45,7 @@ class HomeScreen extends StatelessWidget {
                 _contact(context)
               ],
             ),
-            drawerChild: _buildDrawer(),
+            drawerChild: _buildDrawer(context),
           ),
         ),
       ),
@@ -121,7 +122,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildDrawer() {
+  Widget _buildDrawer(BuildContext context) {
     return Drawer(
       backgroundColor: Colors.white,
       child: Column(
@@ -131,81 +132,89 @@ class HomeScreen extends StatelessWidget {
               padding: EdgeInsets.zero,
               children: [
                 const ProProfileHeaderDrawer(),
-                ListTile(
-                  title: Text('Home',
-                      style:
-                          theme.textTheme.titleSmall!.copyWith(fontSize: 14)),
-                  trailing: const Icon(Icons.arrow_forward_ios_outlined,
-                      size: 18, color: Colors.black54),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: Text('Experience',
-                      style:
-                          theme.textTheme.titleSmall!.copyWith(fontSize: 14)),
-                  trailing: const Icon(Icons.arrow_forward_ios_outlined,
-                      size: 18, color: Colors.black54),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: Text('Clients',
-                      style:
-                          theme.textTheme.titleSmall!.copyWith(fontSize: 14)),
-                  trailing: const Icon(Icons.arrow_forward_ios_outlined,
-                      size: 18, color: Colors.black54),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: Text('Recent Work',
-                      style:
-                          theme.textTheme.titleSmall!.copyWith(fontSize: 14)),
-                  trailing: const Icon(Icons.arrow_forward_ios_outlined,
-                      size: 18, color: Colors.black54),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: Text('Resume',
-                      style:
-                          theme.textTheme.titleSmall!.copyWith(fontSize: 14)),
-                  trailing: const Icon(Icons.arrow_forward_ios_outlined,
-                      size: 18, color: Colors.black54),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: Text('Reach Me',
-                      style:
-                          theme.textTheme.titleSmall!.copyWith(fontSize: 14)),
-                  trailing: const Icon(Icons.arrow_forward_ios_outlined,
-                      size: 18, color: Colors.black54),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: Text('About Me',
-                      style:
-                          theme.textTheme.titleSmall!.copyWith(fontSize: 14)),
-                  trailing: const Icon(Icons.arrow_forward_ios_outlined,
-                      size: 18, color: Colors.black54),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: Text('Logout',
-                      style:
-                          theme.textTheme.titleSmall!.copyWith(fontSize: 14)),
-                  trailing: const Icon(Icons.arrow_forward_ios_outlined,
-                      size: 18, color: Colors.black54),
-                  onTap: () {},
-                ),
+                _buildDrawerListTile(context, 'Home', () {
+                  ElasticDrawerKey.drawer.currentState
+                      ?.closeElasticDrawer(context);
+                }),
+                _buildDrawerListTile(context, 'Experience', () {
+                  ElasticDrawerKey.drawer.currentState
+                      ?.closeElasticDrawer(context);
+                  ElasticDrawerKey.navigator.currentState?.push(
+                    MaterialPageRoute(
+                        builder: (context) => const ResumeScreen()),
+                  );
+                }),
+                _buildDrawerListTile(context, 'Clients', () {
+                  ElasticDrawerKey.drawer.currentState
+                      ?.closeElasticDrawer(context);
+                  ElasticDrawerKey.navigator.currentState?.push(
+                    MaterialPageRoute(
+                        builder: (context) => const ResumeScreen()),
+                  );
+                }),
+                _buildDrawerListTile(context, 'Recent Work', () {
+                  ElasticDrawerKey.drawer.currentState
+                      ?.closeElasticDrawer(context);
+                  ElasticDrawerKey.navigator.currentState?.push(
+                    MaterialPageRoute(
+                        builder: (context) => const ResumeScreen()),
+                  );
+                }),
+                _buildDrawerListTile(context, 'Resume', () {
+                  ElasticDrawerKey.drawer.currentState
+                      ?.closeElasticDrawer(context);
+                  ElasticDrawerKey.navigator.currentState?.push(
+                    MaterialPageRoute(
+                        builder: (context) => const ResumeScreen()),
+                  );
+                }),
+                _buildDrawerListTile(context, 'Reach Me', () {
+                  ElasticDrawerKey.drawer.currentState
+                      ?.closeElasticDrawer(context);
+                  ElasticDrawerKey.navigator.currentState?.push(
+                    MaterialPageRoute(
+                        builder: (context) => const ResumeScreen()),
+                  );
+                }),
+                _buildDrawerListTile(context, 'About Me', () {
+                  ElasticDrawerKey.drawer.currentState
+                      ?.closeElasticDrawer(context);
+                  ElasticDrawerKey.navigator.currentState?.push(
+                    MaterialPageRoute(
+                        builder: (context) => const ResumeScreen()),
+                  );
+                }),
+                _buildDrawerListTile(context, 'Logout', () {
+                  ElasticDrawerKey.drawer.currentState
+                      ?.closeElasticDrawer(context);
+                  ElasticDrawerKey.navigator.currentState?.push(
+                    MaterialPageRoute(
+                        builder: (context) => const ResumeScreen()),
+                  );
+                }),
               ],
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 20.0),
-            child: Text('Version 1.0',
-                style: theme.textTheme.titleSmall!.copyWith(fontSize: 12)),
+            child: Text(
+              'Version 1.0',
+              style: theme.textTheme.titleSmall!.copyWith(fontSize: 12),
+            ),
           ),
         ],
       ),
     );
+  }
+
+  Widget _buildDrawerListTile(
+      BuildContext context, String title, void Function()? onTap) {
+    return ListTile(
+        title: Text(title,
+            style: theme.textTheme.titleSmall!.copyWith(fontSize: 14)),
+        trailing: const Icon(Icons.arrow_forward_ios_outlined,
+            size: 18, color: Colors.black54),
+        onTap: onTap);
   }
 
   Widget _featuredWork(BuildContext context, HomeState state) {
@@ -401,10 +410,12 @@ class HomeScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _buildText(ProProfileStrings.copyRightMsg, FontWeight.w500),
+                _buildContactText(
+                    ProProfileStrings.copyRightMsg, FontWeight.w500),
                 const SizedBox(width: 5),
-                _buildText(ProProfileStrings.email, FontWeight.w700),
-                _buildText(ProProfileStrings.copyright2024, FontWeight.w500),
+                _buildContactText(ProProfileStrings.email, FontWeight.w700),
+                _buildContactText(
+                    ProProfileStrings.copyright2024, FontWeight.w500)
               ],
             ),
           ),
@@ -413,7 +424,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildText(String text, FontWeight weight) {
+  Widget _buildContactText(String text, FontWeight weight) {
     return Text(
       text,
       style: theme.textTheme.titleSmall!.copyWith(
