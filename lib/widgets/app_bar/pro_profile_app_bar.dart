@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:pro_profile/theme/theme_helper.dart';
+import 'package:pro_profile/core/pro_profile_export.dart';
 
 class ProProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
   const ProProfileAppBar(
@@ -33,7 +32,7 @@ class ProProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
       leadingWidth: leadingWidth ?? 0,
       leading: leading,
       title: title,
-      titleSpacing: 0,
+      titleSpacing: 20,
       centerTitle: centerTitle ?? false,
       actions: actions,
     );
@@ -48,9 +47,7 @@ class ProProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
         return Container(
           height: 70,
           width: double.maxFinite,
-          decoration: BoxDecoration(
-            color: theme.colorScheme.onPrimary,
-          ),
+          decoration: ProProfileDecoration.appBarDecoration,
         );
       default:
         return null;

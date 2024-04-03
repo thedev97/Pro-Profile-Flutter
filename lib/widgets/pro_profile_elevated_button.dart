@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import '../core/pro_profile_export.dart';
 import 'pro_profile_base_button.dart';
 
@@ -36,8 +35,8 @@ class ProProfileElevatedButton extends ProProfileBaseButton {
         width: width ?? double.maxFinite,
         margin: margin,
         decoration: decoration,
-        child: ElevatedButton(
-          style: buttonStyle,
+        child: NeumorphicButton(
+          style: ProProfileDecoration.elevatedButtonDecoration,
           onPressed: isDisabled ?? false ? null : onPressed ?? () {},
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

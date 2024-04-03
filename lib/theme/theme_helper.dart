@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import '../core/pro_profile_export.dart';
 
 /// Helper class for managing themes and colors.
 class ThemeManager {
@@ -76,23 +76,41 @@ class ThemeHelper {
 /// Class containing the supported text theme styles.
 class TextThemes {
   static TextTheme textTheme(ColorScheme colorScheme) => TextTheme(
-        displaySmall: TextStyle(
+        displaySmall: GoogleFonts.manrope(
           color: colorScheme.onPrimaryContainer,
           fontSize: 35.0,
-          fontFamily: 'THICCCBOI',
           fontWeight: FontWeight.w700,
+          shadows: [
+            const Shadow(
+                color: Colors.black54, offset: Offset(2, 2), blurRadius: 3),
+          ],
         ),
-        titleLarge: TextStyle(
+        titleLarge: GoogleFonts.manrope(
           color: colorScheme.onPrimaryContainer,
           fontSize: 20.0,
-          fontFamily: 'Manrope',
           fontWeight: FontWeight.w800,
+          shadows: [
+            const Shadow(
+                color: Colors.black54, offset: Offset(2, 2), blurRadius: 3),
+          ],
         ),
-        titleMedium: TextStyle(
-          color: colorScheme.onError,
+        titleMedium: GoogleFonts.manrope(
+          color: colorScheme.onPrimaryContainer,
           fontSize: 18.0,
-          fontFamily: 'Manrope',
           fontWeight: FontWeight.w500,
+          shadows: [
+            const Shadow(
+                color: Colors.black54, offset: Offset(2, 2), blurRadius: 3),
+          ],
+        ),
+        titleSmall: GoogleFonts.manrope(
+          color: Colors.grey[800],
+          fontSize: 18.0,
+          fontWeight: FontWeight.w500,
+          shadows: [
+            const Shadow(
+                color: Colors.black, offset: Offset(0, 0), blurRadius: 1),
+          ],
         ),
       );
 }
@@ -115,17 +133,69 @@ class ColorSchemes {
 }
 
 class ProProfileDecoration {
-  static BoxDecoration get fillPrimary => BoxDecoration(
-        color: theme.colorScheme.primary.withOpacity(1),
+  static BoxDecoration get appBarDecoration => BoxDecoration(
+        color: theme.colorScheme.onPrimary,
+        image: DecorationImage(
+            image: AssetImage(ProProfileImageConstant.banner),
+            fit: BoxFit.cover),
       );
 
-  static BoxDecoration get fillPrimaryContainer => BoxDecoration(
-        color: theme.colorScheme.primaryContainer,
+  static BoxDecoration get drawerHeaderDecoration => BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        image: DecorationImage(
+          image: AssetImage(ProProfileImageConstant.profile),
+          fit: BoxFit.cover,
+          colorFilter: const ColorFilter.mode(Colors.white, BlendMode.modulate),
+        ),
       );
+
+  static BoxDecoration get drawerHeaderDecoration1 => BoxDecoration(
+        color: Colors.black54,
+        image: DecorationImage(
+            image: AssetImage(ProProfileImageConstant.banner),
+            fit: BoxFit.cover),
+      );
+
+  static BoxDecoration get learMoreDecoration => BoxDecoration(
+        color: Colors.black54,
+        image: DecorationImage(
+            image: AssetImage(ProProfileImageConstant.imgLearnMore),
+            fit: BoxFit.cover),
+      );
+
+  static BoxDecoration get contactMeDecoration => BoxDecoration(
+        color: Colors.black54,
+        image: DecorationImage(
+            image: AssetImage(ProProfileImageConstant.imgContactMe),
+            fit: BoxFit.cover),
+      );
+
+  static BoxDecoration get normalDecoration =>
+      const BoxDecoration(color: Colors.transparent);
+
+  static NeumorphicStyle get featuredDecoration => NeumorphicStyle(
+      shape: NeumorphicShape.concave,
+      depth: 2,
+      intensity: 0.5,
+      color: Colors.black,
+      shadowLightColor: Colors.grey[600]);
+
+  static NeumorphicStyle get drawerDecoration => NeumorphicStyle(
+      shape: NeumorphicShape.convex,
+      intensity: 0.5,
+      color: Colors.transparent,
+      shadowLightColor: Colors.grey[600]);
+
+  static NeumorphicStyle get elevatedButtonDecoration => NeumorphicStyle(
+      depth: 8,
+      intensity: 0,
+      shape: NeumorphicShape.convex,
+      color: Colors.white24,
+      shadowLightColor: Colors.grey[600]);
 }
 
 class BorderRadiusStyle {
-  static BorderRadius get roundedBorder4 => BorderRadius.circular(5.0);
+  static BorderRadius get roundedBorder5 => BorderRadius.circular(5.0);
 }
 
 double get strokeAlignInside => BorderSide.strokeAlignInside;
@@ -136,10 +206,8 @@ double get strokeAlignOutside => BorderSide.strokeAlignOutside;
 
 class ProProfileTextStyles {
   // Display text style
-  /*static get displaySmall =>
-      theme.textTheme.displaySmall!.manrope.copyWith(
-        fontSize: 36.0
-      );*/
+  static get displaySmall =>
+      theme.textTheme.displaySmall!.copyWith(fontSize: 30.0, height: 1.35);
 
   // Title text style
   static get titleMediumOnError => theme.textTheme.titleMedium!.copyWith(
@@ -172,20 +240,17 @@ class ProProfileTextStyles {
       fontSize: 16.0,
       fontWeight: FontWeight.w600);
 
-/*static get titleMedium2 =>
-      theme.textTheme.titleMedium!.tHICCCBOI.copyWith(
-        color: theme.colorScheme.errorContainer,
-        fontSize: 16.0,
-        fontWeight: FontWeight.w600
-      );*/
+  static get titleMedium2 => theme.textTheme.titleMedium!.copyWith(
+      color: theme.colorScheme.errorContainer,
+      fontSize: 16.0,
+      fontWeight: FontWeight.w600);
 }
 
 class ProProfileButtonStyles {
   // Text button style
   static ButtonStyle get none => ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
-        elevation: MaterialStateProperty.all<double>(0),
-      );
+      backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
+      elevation: MaterialStateProperty.all<double>(0));
 }
 
 /// Class containing custom colors for a primary theme.

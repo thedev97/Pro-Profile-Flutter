@@ -1,15 +1,24 @@
 part of 'home_bloc.dart';
 
 class HomeState extends Equatable {
-  final HomeModel? homeModel;
+  final List<String> featuredImages;
+  final List<String> projectImages;
 
-  const HomeState({this.homeModel});
+  const HomeState({
+    this.featuredImages = const [],
+    this.projectImages = const [],
+  });
 
   @override
-  List<Object?> get props => [homeModel];
+  List<Object?> get props => [featuredImages, projectImages];
 
-  HomeState copyWith({HomeModel? homeModel}) {
-    return HomeState(homeModel: homeModel ?? this.homeModel);
+  HomeState copyWith({
+    List<String>? featuredImages,
+    List<String>? projectImages,
+  }) {
+    return HomeState(
+      featuredImages: featuredImages ?? this.featuredImages,
+      projectImages: projectImages ?? this.projectImages,
+    );
   }
 }
-
