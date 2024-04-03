@@ -19,24 +19,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider<ThemeBloc>(
-            create: (context) =>
-                ThemeBloc(ThemeState(themeType: ThemeManager.getThemeData()))),
-        BlocProvider<HomeBloc>(
-            create: (context) => HomeBloc(const HomeState())),
-      ],
-      child: BlocBuilder<ThemeBloc, ThemeState>(
-        builder: (context, state) {
-          return MaterialApp(
-            theme: theme,
-            title: ProProfileStrings.appTitle,
-            debugShowCheckedModeBanner: false,
-            initialRoute: ProProfileRoutes.initialRoute,
-            routes: ProProfileRoutes.routes,
-          );
-        },
-      ),
-    );
+        providers: [
+          BlocProvider<HomeBloc>(
+              create: (context) => HomeBloc(const HomeState()))
+        ],
+        child: MaterialApp(
+          theme: theme,
+          title: ProProfileStrings.appTitle,
+          debugShowCheckedModeBanner: false,
+          initialRoute: ProProfileRoutes.initialRoute,
+          routes: ProProfileRoutes.routes,
+        ));
   }
 }

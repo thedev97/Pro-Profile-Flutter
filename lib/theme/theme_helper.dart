@@ -45,24 +45,19 @@ class ThemeHelper {
       scaffoldBackgroundColor: colorScheme.primaryContainer,
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: colorScheme.onError.withOpacity(0.36),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(4),
-          ),
-          shadowColor: colorScheme.primary,
-          elevation: 4,
-          visualDensity: const VisualDensity(
-            vertical: -4,
-            horizontal: -4,
-          ),
-          padding: EdgeInsets.zero,
-        ),
+            backgroundColor: colorScheme.onError.withOpacity(0.36),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+            shadowColor: colorScheme.primary,
+            elevation: 4,
+            visualDensity: const VisualDensity(
+              vertical: -4,
+              horizontal: -4,
+            ),
+            padding: EdgeInsets.zero),
       ),
       dividerTheme: DividerThemeData(
-        thickness: 24,
-        space: 24,
-        color: colorScheme.onPrimaryContainer,
-      ),
+          thickness: 24, space: 24, color: colorScheme.onPrimaryContainer),
     );
   }
 
@@ -77,41 +72,37 @@ class ThemeHelper {
 class TextThemes {
   static TextTheme textTheme(ColorScheme colorScheme) => TextTheme(
         displaySmall: GoogleFonts.manrope(
-          color: colorScheme.onPrimaryContainer,
-          fontSize: 35.0,
-          fontWeight: FontWeight.w700,
-          shadows: [
-            const Shadow(
-                color: Colors.black54, offset: Offset(2, 2), blurRadius: 3),
-          ],
-        ),
+            color: colorScheme.onPrimaryContainer,
+            fontSize: 35.0,
+            fontWeight: FontWeight.w700,
+            shadows: [
+              const Shadow(
+                  color: Colors.black54, offset: Offset(2, 2), blurRadius: 3),
+            ]),
         titleLarge: GoogleFonts.manrope(
-          color: colorScheme.onPrimaryContainer,
-          fontSize: 20.0,
-          fontWeight: FontWeight.w800,
-          shadows: [
-            const Shadow(
-                color: Colors.black54, offset: Offset(2, 2), blurRadius: 3),
-          ],
-        ),
+            color: colorScheme.onPrimaryContainer,
+            fontSize: 20.0,
+            fontWeight: FontWeight.w800,
+            shadows: [
+              const Shadow(
+                  color: Colors.black54, offset: Offset(2, 2), blurRadius: 3),
+            ]),
         titleMedium: GoogleFonts.manrope(
-          color: colorScheme.onPrimaryContainer,
-          fontSize: 18.0,
-          fontWeight: FontWeight.w500,
-          shadows: [
-            const Shadow(
-                color: Colors.black54, offset: Offset(2, 2), blurRadius: 3),
-          ],
-        ),
+            color: colorScheme.onPrimaryContainer,
+            fontSize: 18.0,
+            fontWeight: FontWeight.w500,
+            shadows: [
+              const Shadow(
+                  color: Colors.black54, offset: Offset(2, 2), blurRadius: 3),
+            ]),
         titleSmall: GoogleFonts.manrope(
-          color: Colors.grey[800],
-          fontSize: 18.0,
-          fontWeight: FontWeight.w500,
-          shadows: [
-            const Shadow(
-                color: Colors.black, offset: Offset(0, 0), blurRadius: 1),
-          ],
-        ),
+            color: Colors.grey[800],
+            fontSize: 18.0,
+            fontWeight: FontWeight.w500,
+            shadows: [
+              const Shadow(
+                  color: Colors.black, offset: Offset(0, 0), blurRadius: 1),
+            ]),
       );
 }
 
