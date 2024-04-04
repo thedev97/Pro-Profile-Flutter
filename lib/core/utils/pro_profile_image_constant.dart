@@ -21,5 +21,10 @@ class ProProfileImageConstant {
   static String twitter = '$imagePath/twitter.svg';
   static String whatsapp = '$imagePath/whats_app.svg';
   static String behance = '$imagePath/behance.svg';
+  static String flutter = '$imagePath/flutter.png';
+  static String swift = '$imagePath/swift.png';
+  static String android = '$imagePath/kotlin.png';
+  static String sql = '$imagePath/sql.png';
+  static String git = '$imagePath/github.png';
   static const String imageNotFound = 'assets/images/img_not_found.png';
 }

@@ -4,7 +4,7 @@ class ProProfileAppBarTitle extends StatelessWidget {
   final String text1;
   final String text2;
   final EdgeInsetsGeometry? margin;
-  final Function? onTap;
+  final Function()? onTap;
 
   const ProProfileAppBarTitle(
       {super.key,
@@ -15,21 +15,24 @@ class ProProfileAppBarTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: margin ?? EdgeInsets.zero,
-      child: Row(
-        children: [
-          Text(text1,
-              style: theme.textTheme.titleLarge!.copyWith(
-                  color: theme.colorScheme.onPrimaryContainer, fontSize: 22)),
-          const SizedBox(width: 4),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 8),
-            child: Text(text2,
+    return GestureDetector(
+      onTap: onTap,
+      child: Padding(
+        padding: margin ?? EdgeInsets.zero,
+        child: Row(
+          children: [
+            Text(text1,
                 style: theme.textTheme.titleLarge!.copyWith(
-                    color: Colors.white70, fontSize: 16)),
-          ),
-        ],
+                    color: theme.colorScheme.onPrimaryContainer, fontSize: 22)),
+            const SizedBox(width: 4),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Text(text2,
+                  style: theme.textTheme.titleLarge!
+                      .copyWith(color: Colors.white70, fontSize: 16)),
+            ),
+          ],
+        ),
       ),
     );
   }

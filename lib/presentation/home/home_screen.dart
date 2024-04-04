@@ -75,6 +75,7 @@ class HomeScreen extends StatelessWidget {
 
   PreferredSizeWidget _buildAppBar(BuildContext context) {
     return ProProfileAppBar(
+      isDefaultStyle: false,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [

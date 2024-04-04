@@ -10,7 +10,8 @@ class ProProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
       this.title,
       this.centerTitle,
       this.actions,
-      this.width});
+      this.width,
+      this.isDefaultStyle});
 
   final double? height;
   final double? width;
@@ -20,6 +21,7 @@ class ProProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? title;
   final bool? centerTitle;
   final List<Widget>? actions;
+  final bool? isDefaultStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class ProProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
       toolbarHeight: height ?? 70.0,
       automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
-      flexibleSpace: _getStyle(),
+      flexibleSpace: isDefaultStyle == true ? _getDefaultStyle() : _getStyle(),
       leadingWidth: leadingWidth ?? 0,
       leading: leading,
       title: title,
@@ -48,6 +50,19 @@ class ProProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
           height: 70,
           width: double.maxFinite,
           decoration: ProProfileDecoration.appBarDecoration,
+        );
+      default:
+        return null;
+    }
+  }
+
+  Widget? _getDefaultStyle() {
+    switch (styleType) {
+      case Style.bgFill:
+        return Container(
+          height: 0,
+          width: double.maxFinite,
+          decoration: ProProfileDecoration.normalDecoration,
         );
       default:
         return null;

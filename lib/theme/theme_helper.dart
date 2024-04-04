@@ -123,6 +123,19 @@ class ColorSchemes {
   );
 }
 
+/// Class containing custom colors for a primary theme.
+class PrimaryColors {
+  // Olive
+  Color get olive => const Color(0XFFF7F3D7);
+
+  // White
+  Color get white => const Color(0XFFFFFFFF);
+
+  // Brown
+  Color get brown200 => const Color(0XFF937131);
+
+}
+
 class ProProfileDecoration {
   static BoxDecoration get appBarDecoration => BoxDecoration(
         color: theme.colorScheme.onPrimary,
@@ -164,6 +177,13 @@ class ProProfileDecoration {
   static BoxDecoration get normalDecoration =>
       const BoxDecoration(color: Colors.transparent);
 
+  static NeumorphicStyle get normalNeumorphicDecoration => NeumorphicStyle(
+      shape: NeumorphicShape.concave,
+      depth: 2,
+      intensity: 0.5,
+      color: Colors.black.withOpacity(0.2),
+      shadowLightColor: Colors.grey[600]);
+
   static NeumorphicStyle get featuredDecoration => NeumorphicStyle(
       shape: NeumorphicShape.concave,
       depth: 2,
@@ -175,6 +195,12 @@ class ProProfileDecoration {
       shape: NeumorphicShape.convex,
       intensity: 0.5,
       color: Colors.transparent,
+      shadowLightColor: Colors.grey[600]);
+
+  static NeumorphicStyle get backButtonDecoration => NeumorphicStyle(
+      shape: NeumorphicShape.convex,
+      intensity: 0.5,
+      color: Colors.white,
       shadowLightColor: Colors.grey[600]);
 
   static NeumorphicStyle get elevatedButtonDecoration => NeumorphicStyle(
@@ -245,8 +271,6 @@ class ProProfileButtonStyles {
 }
 
 /// Class containing custom colors for a primary theme.
-class PrimaryColors {}
-
 PrimaryColors get appTheme => ThemeHelper().themeColor();
 
 ThemeData get theme => ThemeHelper().themeData();
