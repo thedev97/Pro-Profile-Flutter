@@ -1,5 +1,10 @@
 import 'package:pro_profile/core/pro_profile_export.dart';
 import 'package:pro_profile/core/utils/pro_profile_string.dart';
+import 'package:pro_profile/presentation/about/about_screen.dart';
+import 'package:pro_profile/presentation/client/client_screen.dart';
+import 'package:pro_profile/presentation/experience/experience_screen.dart';
+import 'package:pro_profile/presentation/projects/project_screen.dart';
+import 'package:pro_profile/presentation/reach/reach_screen.dart';
 import 'package:pro_profile/presentation/resume/resume_screen.dart';
 import 'package:pro_profile/widgets/app_bar/pro_profile_app_bar.dart';
 import 'package:pro_profile/widgets/app_bar/pro_profile_appbar_title.dart';
@@ -142,7 +147,7 @@ class HomeScreen extends StatelessWidget {
                       ?.closeElasticDrawer(context);
                   ElasticDrawerKey.navigator.currentState?.push(
                     MaterialPageRoute(
-                        builder: (context) => const ResumeScreen()),
+                        builder: (context) => const ExperienceScreen()),
                   );
                 }),
                 _buildDrawerListTile(context, 'Clients', () {
@@ -150,7 +155,7 @@ class HomeScreen extends StatelessWidget {
                       ?.closeElasticDrawer(context);
                   ElasticDrawerKey.navigator.currentState?.push(
                     MaterialPageRoute(
-                        builder: (context) => const ResumeScreen()),
+                        builder: (context) => const ClientScreen()),
                   );
                 }),
                 _buildDrawerListTile(context, 'Recent Work', () {
@@ -158,7 +163,7 @@ class HomeScreen extends StatelessWidget {
                       ?.closeElasticDrawer(context);
                   ElasticDrawerKey.navigator.currentState?.push(
                     MaterialPageRoute(
-                        builder: (context) => const ResumeScreen()),
+                        builder: (context) => const ProjectScreen()),
                   );
                 }),
                 _buildDrawerListTile(context, 'Resume', () {
@@ -174,7 +179,7 @@ class HomeScreen extends StatelessWidget {
                       ?.closeElasticDrawer(context);
                   ElasticDrawerKey.navigator.currentState?.push(
                     MaterialPageRoute(
-                        builder: (context) => const ResumeScreen()),
+                        builder: (context) => const ReachMeScreen()),
                   );
                 }),
                 _buildDrawerListTile(context, 'About Me', () {
@@ -182,16 +187,12 @@ class HomeScreen extends StatelessWidget {
                       ?.closeElasticDrawer(context);
                   ElasticDrawerKey.navigator.currentState?.push(
                     MaterialPageRoute(
-                        builder: (context) => const ResumeScreen()),
+                        builder: (context) => const AboutMeScreen()),
                   );
                 }),
                 _buildDrawerListTile(context, 'Logout', () {
                   ElasticDrawerKey.drawer.currentState
                       ?.closeElasticDrawer(context);
-                  ElasticDrawerKey.navigator.currentState?.push(
-                    MaterialPageRoute(
-                        builder: (context) => const ResumeScreen()),
-                  );
                 }),
               ],
             ),

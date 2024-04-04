@@ -12,13 +12,13 @@ class ResumeScreen extends StatelessWidget {
       create: (context) => ResumeBloc(const ResumeState()),
       child: BlocBuilder<ResumeBloc, ResumeState>(
         builder: (context, state) {
-          return _buildHome(context, state);
+          return _buildResume(context, state);
         },
       ),
     );
   }
 
-  Widget _buildHome(BuildContext context, ResumeState state) {
+  Widget _buildResume(BuildContext context, ResumeState state) {
     return SafeArea(
       child: Scaffold(
         appBar: _buildAppBar(context),
