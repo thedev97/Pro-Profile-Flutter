@@ -29,10 +29,21 @@ class ExperienceScreen extends StatelessWidget {
               const SizedBox(height: 10),
               _buildHeader(context),
               const SizedBox(height: 20),
+              _buildProfileExperience(context, state)
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildProfileExperience(BuildContext context, ExperienceState state) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildExperienceList(context, state),
+        _buildExperienceListDetails(context)
+      ],
     );
   }
 
@@ -73,10 +84,9 @@ class ExperienceScreen extends StatelessWidget {
           Neumorphic(
             style: ProProfileDecoration.drawerDecoration,
             child: Container(
-              height: 200,
-              width: 150,
-              decoration: ProProfileDecoration.drawerHeaderDecoration,
-            ),
+                height: 200,
+                width: 150,
+                decoration: ProProfileDecoration.drawerHeaderDecoration),
           ),
           const SizedBox(width: 15),
           Expanded(
@@ -84,11 +94,9 @@ class ExperienceScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "Alexa Mclaren",
-                  maxLines: 2,
-                  style: theme.textTheme.titleMedium!.copyWith(fontSize: 30),
-                ),
+                Text("Alexa Mclaren",
+                    maxLines: 2,
+                    style: theme.textTheme.titleMedium!.copyWith(fontSize: 30)),
                 const SizedBox(height: 5),
                 Text(
                   "Software Engineer".toUpperCase(),
@@ -110,6 +118,116 @@ class ExperienceScreen extends StatelessWidget {
               ],
             ),
           ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildExperienceList(BuildContext context, ExperienceState state) {
+    final List<Map<String, dynamic>> experiences = [
+      {'imagePath': ProProfileImageConstant.nvidia, 'title': 'Nvidia'},
+      {'imagePath': ProProfileImageConstant.tesla, 'title': 'Tesla'},
+      {'imagePath': ProProfileImageConstant.ibm, 'title': 'IBM'}
+    ];
+
+    return EasyStepper(
+      alignment: Alignment.centerLeft,
+      direction: Axis.vertical,
+      activeStep: state.activeStep,
+      lineStyle: LineStyle(
+          activeLineColor: Colors.lime,
+          lineLength: 75,
+          lineThickness: 5,
+          lineSpace: 5,
+          lineType: LineType.normal,
+          defaultLineColor: Colors.white54,
+          progress: state.progress),
+      borderThickness: 8,
+      internalPadding: 15,
+      stepShape: StepShape.rRectangle,
+      stepBorderRadius: 15,
+      activeStepBorderColor: Colors.lime,
+      showLoadingAnimation: false,
+      steps: List.generate(experiences.length, (index) {
+        final experience = experiences[index];
+        return EasyStep(
+          customStep: ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: Opacity(
+              opacity: state.activeStep >= index ? 1 : 1,
+              child: Neumorphic(
+                style: ProProfileDecoration.normalNeumorphicDecoration,
+                child: ProProfileImageView(
+                    imagePath: experience['imagePath'], height: 35, width: 35),
+              ),
+            ),
+          ),
+          customTitle: Text(experience['title'],
+              style: theme.textTheme.titleMedium!.copyWith(
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+                color: Colors.white,
+              ),
+              textAlign: TextAlign.center),
+        );
+      }),
+    );
+  }
+
+  Widget _buildExperienceListDetails(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildExperienceItem(
+            context,
+            "Nvidia",
+            "Software Consultant",
+            ProProfileImageConstant.nvidia,
+            "2023-Present",
+            ProProfileStrings.desc2),
+        _buildExperienceItem(
+            context,
+            "Tesla",
+            "System Engineering",
+            ProProfileImageConstant.tesla,
+            "2022-2023",
+            ProProfileStrings.desc1),
+        _buildExperienceItem(context, "IBM", "Software Engineering",
+            ProProfileImageConstant.ibm, "2020-2022", ProProfileStrings.desc1),
+      ],
+    );
+  }
+
+  Widget _buildExperienceItem(BuildContext context, String companyName,
+      String position, String imagePath, String duration, String description) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(duration,
+              style: theme.textTheme.titleSmall!.copyWith(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white54)),
+          const SizedBox(height: 5),
+          Text(position,
+              style: theme.textTheme.titleMedium!.copyWith(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white)),
+          const SizedBox(height: 2),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.38,
+            child: Text(description,
+                style: theme.textTheme.titleMedium!.copyWith(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white70),
+                overflow: TextOverflow.ellipsis,
+                maxLines: 10),
+          ),
+          const SizedBox(height: 15)
         ],
       ),
     );

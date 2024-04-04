@@ -120,15 +120,16 @@ class ResumeScreen extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _profileEducationAndContact(),
-        _profileExperienceAndSkills(context)
+        _profileEducationContactSkills(context),
+        const SizedBox(width: 12),
+        _profileExperience(context)
       ],
     );
   }
 
-  Widget _profileEducationAndContact() {
+  Widget _profileEducationContactSkills(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 10),
+      padding: const EdgeInsets.only(left: 10, bottom: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -136,6 +137,7 @@ class ResumeScreen extends StatelessWidget {
           const SizedBox(height: 15),
           _profileContact(),
           const SizedBox(height: 15),
+          _profileSkills(context)
         ],
       ),
     );
@@ -270,21 +272,6 @@ class ResumeScreen extends StatelessWidget {
     );
   }
 
-  Widget _profileExperienceAndSkills(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _profileExperience(context),
-          const SizedBox(height: 15),
-          _profileSkills(context),
-          const SizedBox(height: 15),
-        ],
-      ),
-    );
-  }
-
   Widget _profileExperience(BuildContext context) {
     return Neumorphic(
       style: ProProfileDecoration.normalNeumorphicDecoration,
@@ -297,113 +284,121 @@ class ResumeScreen extends StatelessWidget {
             Text(
               "Experience".toUpperCase(),
               style: theme.textTheme.titleMedium!.copyWith(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-                color: appTheme.brown200,
-              ),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                  color: appTheme.brown200),
             ),
             const SizedBox(height: 15),
-            Text(
-              "2023-Present",
-              style: theme.textTheme.titleSmall!.copyWith(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                color: Colors.white54,
-              ),
-            ),
-            const SizedBox(height: 5),
-            Text(
-              "Software Consultant",
-              style: theme.textTheme.titleMedium!.copyWith(
-                fontSize: 15,
-                fontWeight: FontWeight.w600,
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(height: 2),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.4,
-              child: Text(
-                ProProfileStrings.desc2,
-                style: theme.textTheme.titleMedium!.copyWith(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white70,
-                ),
-                overflow: TextOverflow.ellipsis,
-                maxLines: 10,
-              ),
-            ),
-            const SizedBox(height: 15),
-            Text(
-              "2020-2022",
-              style: theme.textTheme.titleSmall!.copyWith(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                color: Colors.white54,
-              ),
-            ),
-            const SizedBox(height: 5),
-            Text(
-              "Software Engineering",
-              style: theme.textTheme.titleMedium!.copyWith(
-                fontSize: 15,
-                fontWeight: FontWeight.w600,
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(height: 2),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.4,
-              child: Text(
-                ProProfileStrings.desc1,
-                style: theme.textTheme.titleMedium!.copyWith(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white70,
-                ),
-                overflow: TextOverflow.ellipsis,
-                maxLines: 10,
-              ),
-            ),
+            _buildExperienceItem(
+                context,
+                "Nvidia",
+                "Software Consultant",
+                ProProfileImageConstant.nvidia,
+                "2023-Present",
+                ProProfileStrings.desc2),
+            _buildExperienceItem(
+                context,
+                "Tesla",
+                "System Engineering",
+                ProProfileImageConstant.tesla,
+                "2022-2023",
+                ProProfileStrings.desc1),
+            _buildExperienceItem(
+                context,
+                "IBM",
+                "Software Engineering",
+                ProProfileImageConstant.ibm,
+                "2020-2022",
+                ProProfileStrings.desc1),
           ],
         ),
       ),
     );
   }
 
+  Widget _buildExperienceItem(BuildContext context, String company,
+      String position, String imagePath, String dateRange, String description) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          dateRange,
+          style: theme.textTheme.titleSmall!.copyWith(
+              fontSize: 14, fontWeight: FontWeight.w500, color: Colors.white54),
+        ),
+        const SizedBox(height: 5),
+        Row(
+          children: [
+            Neumorphic(
+              style: ProProfileDecoration.normalNeumorphicDecoration,
+              child: ProProfileImageView(
+                imagePath: imagePath,
+                height: 30,
+                width: 30,
+                margin: const EdgeInsets.all(5),
+              ),
+            ),
+            const SizedBox(width: 15),
+            Text(
+              company,
+              style: theme.textTheme.titleMedium!.copyWith(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white),
+            ),
+          ],
+        ),
+        const SizedBox(height: 5),
+        Text(
+          position,
+          style: theme.textTheme.titleMedium!.copyWith(
+              fontSize: 15, fontWeight: FontWeight.w600, color: Colors.white),
+        ),
+        const SizedBox(height: 2),
+        SizedBox(
+          width: MediaQuery.of(context).size.width * 0.38,
+          child: Text(description,
+              style: theme.textTheme.titleMedium!.copyWith(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white70),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 10),
+        ),
+        const SizedBox(height: 15),
+      ],
+    );
+  }
+
   Widget _profileSkills(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 5),
-      child: Neumorphic(
-        style: ProProfileDecoration.normalNeumorphicDecoration,
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 15),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Text(
-                  "Skills".toUpperCase(),
-                  style: theme.textTheme.titleMedium!.copyWith(
+    return Neumorphic(
+      style: ProProfileDecoration.normalNeumorphicDecoration,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 15),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Text(
+                "Skills".toUpperCase(),
+                style: theme.textTheme.titleMedium!.copyWith(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
-                    color: appTheme.brown200
-                  ),
-                ),
+                    color: appTheme.brown200),
               ),
-              const SizedBox(height: 15),
-              SizedBox(
-                width: MediaQuery.of(context).size.width *0.42,
+            ),
+            const SizedBox(height: 15),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5),
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.45,
                 child: GridView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    mainAxisSpacing: 25,
-                  ),
+                      crossAxisCount: 3, mainAxisSpacing: 25),
                   itemCount: ProProfileHelper.skillsImage.length,
                   itemBuilder: (context, index) {
                     return Column(
@@ -417,18 +412,17 @@ class ResumeScreen extends StatelessWidget {
                         Text(
                           ProProfileHelper.skillText[index],
                           style: theme.textTheme.titleMedium!.copyWith(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                            color: appTheme.white,
-                          ),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color: appTheme.white),
                         ),
                       ],
                     );
                   },
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

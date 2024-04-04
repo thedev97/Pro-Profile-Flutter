@@ -145,7 +145,8 @@ class HomeScreen extends StatelessWidget {
                 _buildDrawerListTile(context, 'Experience', () {
                   ElasticDrawerKey.drawer.currentState
                       ?.closeElasticDrawer(context);
-                  ElasticDrawerKey.navigator.currentState?.push(
+                  Navigator.push(
+                    context,
                     MaterialPageRoute(
                         builder: (context) => const ExperienceScreen()),
                   );
@@ -153,7 +154,8 @@ class HomeScreen extends StatelessWidget {
                 _buildDrawerListTile(context, 'Clients', () {
                   ElasticDrawerKey.drawer.currentState
                       ?.closeElasticDrawer(context);
-                  ElasticDrawerKey.navigator.currentState?.push(
+                  Navigator.push(
+                    context,
                     MaterialPageRoute(
                         builder: (context) => const ClientScreen()),
                   );
@@ -161,7 +163,8 @@ class HomeScreen extends StatelessWidget {
                 _buildDrawerListTile(context, 'Recent Work', () {
                   ElasticDrawerKey.drawer.currentState
                       ?.closeElasticDrawer(context);
-                  ElasticDrawerKey.navigator.currentState?.push(
+                  Navigator.push(
+                    context,
                     MaterialPageRoute(
                         builder: (context) => const ProjectScreen()),
                   );
@@ -169,7 +172,8 @@ class HomeScreen extends StatelessWidget {
                 _buildDrawerListTile(context, 'Resume', () {
                   ElasticDrawerKey.drawer.currentState
                       ?.closeElasticDrawer(context);
-                  ElasticDrawerKey.navigator.currentState?.push(
+                  Navigator.push(
+                    context,
                     MaterialPageRoute(
                         builder: (context) => const ResumeScreen()),
                   );
@@ -177,7 +181,8 @@ class HomeScreen extends StatelessWidget {
                 _buildDrawerListTile(context, 'Reach Me', () {
                   ElasticDrawerKey.drawer.currentState
                       ?.closeElasticDrawer(context);
-                  ElasticDrawerKey.navigator.currentState?.push(
+                  Navigator.push(
+                    context,
                     MaterialPageRoute(
                         builder: (context) => const ReachMeScreen()),
                   );
@@ -185,7 +190,8 @@ class HomeScreen extends StatelessWidget {
                 _buildDrawerListTile(context, 'About Me', () {
                   ElasticDrawerKey.drawer.currentState
                       ?.closeElasticDrawer(context);
-                  ElasticDrawerKey.navigator.currentState?.push(
+                  Navigator.push(
+                    context,
                     MaterialPageRoute(
                         builder: (context) => const AboutMeScreen()),
                   );

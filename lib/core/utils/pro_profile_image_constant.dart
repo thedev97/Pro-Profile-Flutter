@@ -26,5 +26,8 @@ class ProProfileImageConstant {
   static String android = '$imagePath/kotlin.png';
   static String sql = '$imagePath/sql.png';
   static String git = '$imagePath/github.png';
+  static String tesla = '$imagePath/tesla.png';
+  static String nvidia = '$imagePath/nvidia.png';
+  static String ibm = '$imagePath/ibm.png';
   static const String imageNotFound = 'assets/images/img_not_found.png';
 }

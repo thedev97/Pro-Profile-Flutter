@@ -10,3 +10,4 @@ export 'package:google_fonts/google_fonts.dart';
 export 'package:elastic_drawer/elastic_drawer.dart';
 export '../../core/utils/pro_profile_helper.dart';
 export 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
+export 'package:easy_stepper/easy_stepper.dart';
