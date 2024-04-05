@@ -4,13 +4,5 @@ Signify a professional profile, indicating a platform or service where freelance
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+![home-3](https://github.com/thedev97/pro-profile/assets/67691564/71199768-ba40-47c3-85c8-4e83a46c68ca)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
