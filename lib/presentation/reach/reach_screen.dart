@@ -1,7 +1,7 @@
 import 'package:pro_profile/core/pro_profile_export.dart';
 import 'package:pro_profile/presentation/reach/bloc/reach_bloc.dart';
 import 'package:pro_profile/widgets/app_bar/pro_profile_app_bar.dart';
-import 'package:pro_profile/widgets/pro_profile_textform.dart';
+import 'package:pro_profile/widgets/pro_profile_text_form.dart';
 
 class ReachMeScreen extends StatelessWidget {
   const ReachMeScreen({super.key});
