@@ -338,11 +338,11 @@ class ResumeScreen extends StatelessWidget {
                 margin: const EdgeInsets.all(5),
               ),
             ),
-            const SizedBox(width: 15),
+            const SizedBox(width: 10),
             Text(
               company,
               style: theme.textTheme.titleMedium!.copyWith(
-                  fontSize: 15,
+                  fontSize: 16,
                   fontWeight: FontWeight.w600,
                   color: Colors.white),
             ),
@@ -365,7 +365,7 @@ class ResumeScreen extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               maxLines: 10),
         ),
-        const SizedBox(height: 15),
+        const SizedBox(height: 15)
       ],
     );
   }
@@ -409,13 +409,11 @@ class ResumeScreen extends StatelessWidget {
                             width: 40,
                             fit: BoxFit.cover),
                         const SizedBox(height: 2),
-                        Text(
-                          ProProfileHelper.skillText[index],
-                          style: theme.textTheme.titleMedium!.copyWith(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: appTheme.white),
-                        ),
+                        Text(ProProfileHelper.skillText[index],
+                            style: theme.textTheme.titleMedium!.copyWith(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                color: appTheme.white))
                       ],
                     );
                   },
