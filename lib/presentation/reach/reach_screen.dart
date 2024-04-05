@@ -1,7 +1,7 @@
 import 'package:pro_profile/core/pro_profile_export.dart';
-import 'package:pro_profile/core/utils/pro_profile_string.dart';
 import 'package:pro_profile/presentation/reach/bloc/reach_bloc.dart';
 import 'package:pro_profile/widgets/app_bar/pro_profile_app_bar.dart';
+import 'package:pro_profile/widgets/pro_profile_textform.dart';
 
 class ReachMeScreen extends StatelessWidget {
   const ReachMeScreen({super.key});
@@ -24,13 +24,12 @@ class ReachMeScreen extends StatelessWidget {
         appBar: _buildAppBar(context),
         body: SizedBox(
           width: MediaQuery.of(context).size.width,
-          child: ListView(
+          child: Column(
             children: [
-              const SizedBox(height: 10),
-              _buildHeader(context),
               const SizedBox(height: 20),
+              _reachMeList(context)
             ],
-          ),
+          )
         ),
       ),
     );
@@ -64,53 +63,35 @@ class ReachMeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader(BuildContext context) {
+  Widget _reachMeList(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Neumorphic(
-            style: ProProfileDecoration.drawerDecoration,
-            child: Container(
-              height: 200,
-              width: 150,
-              decoration: ProProfileDecoration.drawerHeaderDecoration,
-            ),
-          ),
-          const SizedBox(width: 15),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Alexa Mclaren",
-                  maxLines: 2,
-                  style: theme.textTheme.titleMedium!.copyWith(fontSize: 30),
-                ),
-                const SizedBox(height: 5),
-                Text(
-                  "Software Engineer".toUpperCase(),
-                  style: theme.textTheme.titleMedium!.copyWith(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      color: appTheme.brown200),
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  ProProfileStrings.desc3,
-                  maxLines: 5,
-                  style: theme.textTheme.titleSmall!.copyWith(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
+      child: Neumorphic(
+        style: ProProfileDecoration.normalNeumorphicDecoration,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+          child: Column(
+            children: [
+              const ProProfileTextFormField(label: 'Email'),
+              const SizedBox(height: 20),
+              const ProProfileTextFormField(label: 'Phone Number'),
+              const SizedBox(height: 20),
+              const ProProfileTextFormField(label: 'Message'),
+              const SizedBox(height: 30),
+              NeumorphicButton(
+                  onPressed: () {},
+                  style: ProProfileDecoration.iconButtonDecoration,
+                  child: Text(
+                    'Submit',
+                    style: theme.textTheme.titleMedium!.copyWith(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w800,
                       color: Colors.white,
-                      height: 1.5),
-                ),
-              ],
-            ),
+                    ),
+                  ))
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

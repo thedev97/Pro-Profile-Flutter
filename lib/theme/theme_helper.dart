@@ -133,7 +133,6 @@ class PrimaryColors {
 
   // Brown
   Color get brown200 => const Color(0XFF937131);
-
 }
 
 class ProProfileDecoration {
@@ -210,12 +209,27 @@ class ProProfileDecoration {
       color: Colors.white24,
       shadowLightColor: Colors.grey[600]);
 
+  static NeumorphicStyle get elevatedButtonDecoration1 => NeumorphicStyle(
+      depth: 8,
+      intensity: 0,
+      shape: NeumorphicShape.convex,
+      color: Colors.blue,
+      shadowLightColor: Colors.lightBlue[600]);
+
   static NeumorphicStyle get iconButtonDecoration => NeumorphicStyle(
       shape: NeumorphicShape.convex,
       depth: 4,
       intensity: 0.5,
       color: Colors.grey.withOpacity(0.2),
       shadowLightColor: Colors.grey[800]);
+
+  static NeumorphicStyle get textDecoration => NeumorphicStyle(
+        color: Colors.white,
+        depth: -6,
+        intensity: 0.7,
+        shadowLightColor: Colors.white,
+        shadowDarkColor: Colors.grey.withOpacity(0.4),
+      );
 }
 
 class BorderRadiusStyle {
