@@ -176,6 +176,11 @@ class ProProfileDecoration {
   static BoxDecoration get normalDecoration =>
       const BoxDecoration(color: Colors.transparent);
 
+  static BoxDecoration get normalDecoration1 => BoxDecoration(
+      color: theme.colorScheme.primaryContainer,
+      borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(15), topRight: Radius.circular(15)));
+
   static NeumorphicStyle get normalNeumorphicDecoration => NeumorphicStyle(
       shape: NeumorphicShape.concave,
       depth: 2,

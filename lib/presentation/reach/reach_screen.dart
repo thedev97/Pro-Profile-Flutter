@@ -87,7 +87,7 @@ class ReachMeScreen extends StatelessWidget {
                       fontSize: 14,
                       fontWeight: FontWeight.w800,
                       color: Colors.white,
-                    ),
+                    )
                   ))
             ],
           ),

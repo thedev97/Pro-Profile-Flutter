@@ -23,4 +23,5 @@ class ProProfileStrings {
   static const String desc1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis a interdum interdum venenatis et metus ante.";
   static const String desc2 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nibh est eget non pharetra tincidunt.";
   static const String desc3 = "Experienced Product Designer skilled in user-centered design.\nStrong collaboration and communication abilities. Committed\nto staying current with design trends for cutting-edge\nsolutions.";
+  static const String desc4 = "Experienced Product Designer skilled in user-centered design. Strong collaboration and communication abilities. Committed to staying current with design trends for cutting-edge solutions.";
 }
