@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
           BlocProvider<ClientsBloc>(
               create: (context) => ClientsBloc(const ClientsState())),
           BlocProvider<ProjectBloc>(
-              create: (context) => ProjectBloc(const ProjectState())),
+              create: (context) => ProjectBloc( const ProjectState())),
           BlocProvider<ResumeBloc>(
               create: (context) => ResumeBloc(const ResumeState())),
           BlocProvider<ReachBloc>(

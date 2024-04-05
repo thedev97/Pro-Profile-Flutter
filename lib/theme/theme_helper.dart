@@ -209,6 +209,13 @@ class ProProfileDecoration {
       shape: NeumorphicShape.convex,
       color: Colors.white24,
       shadowLightColor: Colors.grey[600]);
+
+  static NeumorphicStyle get iconButtonDecoration => NeumorphicStyle(
+      shape: NeumorphicShape.convex,
+      depth: 4,
+      intensity: 0.5,
+      color: Colors.grey.withOpacity(0.2),
+      shadowLightColor: Colors.grey[800]);
 }
 
 class BorderRadiusStyle {

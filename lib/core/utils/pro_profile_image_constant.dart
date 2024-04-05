@@ -31,5 +31,6 @@ class ProProfileImageConstant {
   static String ibm = '$imagePath/ibm.png';
   static String quotes1 = '$imagePath/quotes_1.png';
   static String quotes2 = '$imagePath/quotes_2.png';
+  static String files = '$imagePath/files.png';
   static const String imageNotFound = 'assets/images/img_not_found.png';
 }

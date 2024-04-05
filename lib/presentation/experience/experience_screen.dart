@@ -29,6 +29,15 @@ class ExperienceScreen extends StatelessWidget {
               const SizedBox(height: 10),
               _buildHeader(context),
               const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  'My Experience'.toUpperCase(),
+                  style: theme.textTheme.titleMedium!.copyWith(
+                      fontSize: 17, fontWeight: FontWeight.w600, color: Colors.white),
+                ),
+              ),
+              const SizedBox(height: 15),
               _buildProfileExperience(context, state)
             ],
           ),
@@ -218,15 +227,14 @@ class ExperienceScreen extends StatelessWidget {
                   color: Colors.white)),
           const SizedBox(height: 2),
           SizedBox(
-            width: MediaQuery.of(context).size.width * 0.38,
-            child: Text(description,
-                style: theme.textTheme.titleMedium!.copyWith(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white70),
-                overflow: TextOverflow.ellipsis,
-                maxLines: 10),
-          ),
+              width: MediaQuery.of(context).size.width * 0.38,
+              child: Text(description,
+                  style: theme.textTheme.titleMedium!.copyWith(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white54),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 10)),
           const SizedBox(height: 15)
         ],
       ),

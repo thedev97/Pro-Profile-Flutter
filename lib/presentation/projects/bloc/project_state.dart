@@ -1,12 +1,18 @@
 part of 'project_bloc.dart';
 
 class ProjectState extends Equatable {
-  const ProjectState();
+  final int activeStep;
+  final double progress;
+
+  const ProjectState({this.activeStep = 0, this.progress = 0.0});
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [activeStep, progress];
 
-  ProjectState copyWith() {
-    return const ProjectState();
+  ProjectState copyWith({int? activeStep, double? progress}) {
+    return ProjectState(
+      activeStep: activeStep ?? this.activeStep,
+      progress: progress ?? this.progress,
+    );
   }
 }

@@ -5,14 +5,13 @@ part 'project_event.dart';
 part 'project_state.dart';
 
 class ProjectBloc extends Bloc<ProjectEvent, ProjectState> {
-  ProjectBloc(super.initialState) {
-    on<HomeInitialEvent>(_onInitialize);
-  }
+  ProjectBloc(ProjectState experienceState) : super(const ProjectState());
 
-  void _onInitialize(
-      HomeInitialEvent event,
-      Emitter<ProjectState> emit,
-      ) async {
-    emit(state.copyWith());
+  Stream<ProjectState> mapEventToState(ProjectEvent event) async* {
+    if (event is UpdateActiveStepEvent) {
+      yield state.copyWith(activeStep: event.activeStep);
+    } else if (event is UpdateProgressEvent) {
+      yield state.copyWith(progress: event.progress);
+    }
   }
 }
